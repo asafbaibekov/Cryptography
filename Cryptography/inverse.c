@@ -20,7 +20,8 @@ void print_inverse(int a, int n) {
 	GCD(a, n, &gcd, &x, &y);
 	if (gcd != 1) {
 		printf("Can't find the inverse between %d and %d\n", a, n);
-		printf("because the gcd between them %d isn't equal to 1\n", gcd);
+		printf("because the gcd between them is %d\n", gcd);
+		printf("and it isn't equal to 1\n");
 		return;
 	}
 	printf("%dx === %d (mod %d)\n", a, gcd, n);
