@@ -18,23 +18,28 @@ void scan_for_inverse(int *a, int *n) {
 void print_inverse(int a, int n) {
 	int gcd, x, y;
 	GCD(a, n, &gcd, &x, &y);
-	if (gcd != 1) {
+	printf("%dx === %d (mod %d)\n", a, gcd, n);
+	int *inv = inverse(a, n);
+	if (inv == NULL) {
 		printf("Can't find the inverse between %d and %d\n", a, n);
 		printf("because the gcd between them is %d\n", gcd);
 		printf("and it isn't equal to 1\n");
 		return;
 	}
-	printf("%dx === %d (mod %d)\n", a, gcd, n);
-	int inv = inverse(a, n);
-	printf("x === %d (mod %d)\n", inv, n);
+	printf("x === %d (mod %d)\n", *inv, n);
+	free(inv);
 }
 
-int inverse(int a, int n) {
+int *inverse(int a, int n) {
 	int gcd, x, y;
 	GCD(a, n, &gcd, &x, &y);
+	if (gcd != 1) return NULL;
 	a %= n;
 	for (int i = 0; i < n; i++)
-		if ((a * i) % n == gcd)
-			return i;
-	return 0;
+		if ((a * i) % n == gcd) {
+			int *toRet = malloc(sizeof(int));
+			*toRet = i;
+			return toRet;
+		}
+	return NULL;
 }

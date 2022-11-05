@@ -16,7 +16,11 @@ void print_demo_crt(void) {
 	print_for_crt(modularEquations, size);
 	printf("answer: ");
 	ModularEquation *finalModularEquation = crt(modularEquations, size);
-	printModularEquation(finalModularEquation);
+	if (finalModularEquation == NULL) {
+		printf("Couldn't find the answer because inverse is not found,\n");
+		printf("Check the equations and try again.\n");
+	} else
+		printModularEquation(finalModularEquation);
 }
 
 void print_for_crt(ModularEquation *modularEquations[], size_t size) {
@@ -31,8 +35,10 @@ ModularEquation *crt(ModularEquation *modularEquations[], size_t size) {
 		N *= modularEquations[i]->n;
 	for (int i = 0; i < size; i++) {
 		int n_i = N / modularEquations[i]->n;
-		int x_i = inverse(n_i, modularEquations[i]->n);
-		bnx_sum += modularEquations[i]->b * n_i * x_i;
+		int *x_i = inverse(n_i, modularEquations[i]->n);
+		if (x_i == NULL) return NULL;
+		bnx_sum += modularEquations[i]->b * n_i * (*x_i);
+		free(x_i);
 	}
 	return initModularEquation(bnx_sum % N, N);
 }
