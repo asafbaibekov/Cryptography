@@ -7,11 +7,14 @@
 
 #include <stdio.h>
 #include "gcd.h"
+#include "inverse.h"
 
 int main(int argc, const char * argv[]) {
 	int a, b;
 	scan_for_gcd(&a, &b);
 	print_gcd(a, b);
 	printf("\n");
+	scan_for_inverse(&a, &b);
+	print_inverse(a, b);
 	return 0;
 }
