@@ -11,13 +11,15 @@
 #include "crt.h"
 
 int main(int argc, const char * argv[]) {
+	printf("======================================\n");
 	int a, b;
 	scan_for_gcd(&a, &b);
 	print_gcd(a, b);
-	printf("\n");
+	printf("======================================\n");
 	scan_for_inverse(&a, &b);
 	print_inverse(a, b);
-	printf("\n");
+	printf("======================================\n");
 	print_demo_crt();
+	printf("======================================\n");
 	return 0;
 }
