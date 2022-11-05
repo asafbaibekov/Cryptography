@@ -7,6 +7,22 @@
 
 #include "gcd.h"
 
+void scan_for_gcd(int *a, int *b) {
+	printf("scan for gcd:\n");
+	printf("enter a = ");
+	scanf("%d", a);
+	printf("enter b = ");
+	scanf("%d", b);
+}
+
+void print_gcd(int a, int b) {
+	int gcd = 0;
+	int m = 0;
+	int n = 0;
+	GCD(a, b, &gcd, &m, &n);
+	printf("%d = %d * %d + %d * %d\n", gcd, m, a, n, b);
+}
+
 void GCD(int a, int b, int *gcd, int *m, int *n) {
 	if (a == 0) {
 		*gcd = b;

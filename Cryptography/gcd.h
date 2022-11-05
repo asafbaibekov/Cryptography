@@ -10,6 +10,10 @@
 
 #include <stdio.h>
 
+void scan_for_gcd(int *a, int *b);
+
+void print_gcd(int a, int b);
+
 void GCD(int a, int b, int *gcd, int *m, int *n);
 
 #endif /* gcd_h */
