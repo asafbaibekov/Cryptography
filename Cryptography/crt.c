@@ -8,6 +8,7 @@
 #include "crt.h"
 
 void print_demo_crt(void) {
+	printf("run crt demo:\n");
 	size_t size = 3;
 	ModularEquation **modularEquations = malloc(sizeof(ModularEquation *) * size);
 	modularEquations[0] = initModularEquation(2, 5);
