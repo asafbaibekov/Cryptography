@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "gcd.h"
 #include "inverse.h"
+#include "crt.h"
 
 int main(int argc, const char * argv[]) {
 	int a, b;
@@ -16,5 +17,7 @@ int main(int argc, const char * argv[]) {
 	printf("\n");
 	scan_for_inverse(&a, &b);
 	print_inverse(a, b);
+	printf("\n");
+	print_demo_crt();
 	return 0;
 }
