@@ -9,6 +9,7 @@
 #include "gcd.h"
 #include "inverse.h"
 #include "crt.h"
+#include "square-and-multiply.h"
 
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
@@ -20,6 +21,9 @@ int main(int argc, const char * argv[]) {
 	print_inverse(a, b);
 	printf("======================================\n");
 	print_demo_crt();
+	printf("======================================\n");
+	print_for_exponent(2, 79, 101);
+	print_for_exponent(3, 197, 101);
 	printf("======================================\n");
 	return 0;
 }
