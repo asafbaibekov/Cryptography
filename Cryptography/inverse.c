@@ -35,11 +35,7 @@ int *inverse(int a, int n) {
 	GCD(a, n, &gcd, &x, &y);
 	if (gcd != 1) return NULL;
 	a %= n;
-	for (int i = 0; i < n; i++)
-		if ((a * i) % n == gcd) {
-			int *toRet = malloc(sizeof(int));
-			*toRet = i;
-			return toRet;
-		}
-	return NULL;
+	int *toRet = malloc(sizeof(int));
+	*toRet = (x < 0) ? x + n : x;
+	return toRet;
 }
