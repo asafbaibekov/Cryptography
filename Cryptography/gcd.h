@@ -14,6 +14,8 @@ void scan_for_gcd(int *a, int *b);
 
 void print_gcd(int a, int b);
 
+int gcd(int a, int b);
+
 void extended_gcd(int a, int b, int *gcd, int *m, int *n);
 
 #endif /* gcd_h */

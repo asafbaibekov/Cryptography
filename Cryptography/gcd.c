@@ -23,6 +23,14 @@ void print_gcd(int a, int b) {
 	printf("%d = %d * %d + %d * %d\n", gcd, m, a, n, b);
 }
 
+int gcd(int a, int b) {
+	if (a < b)
+		return gcd(b, a);
+	if (a % b == 0)
+		return b;
+	return gcd(b, a % b);
+}
+
 void extended_gcd(int a, int b, int *gcd, int *m, int *n) {
 	if (a == 0) {
 		*gcd = b;
