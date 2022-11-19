@@ -15,8 +15,6 @@
 // x^e (mod p)
 void print_for_exponent(int x, int e, int p);
 
-char *decimal_to_binary_string(int decimal);
-
-unsigned int exponent(int x, int e, int p);
+long long exponent(long long x, long long y, long long mod);
 
 #endif /* square_and_multiply_h */
