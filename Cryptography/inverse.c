@@ -17,7 +17,7 @@ void scan_for_inverse(int *a, int *n) {
 
 void print_inverse(int a, int n) {
 	int gcd, x, y;
-	GCD(a, n, &gcd, &x, &y);
+	extended_gcd(a, n, &gcd, &x, &y);
 	printf("%dx === %d (mod %d)\n", a, gcd, n);
 	int *inv = inverse(a, n);
 	if (inv == NULL) {
@@ -32,7 +32,7 @@ void print_inverse(int a, int n) {
 
 int *inverse(int a, int n) {
 	int gcd, x, y;
-	GCD(a, n, &gcd, &x, &y);
+	extended_gcd(a, n, &gcd, &x, &y);
 	if (gcd != 1) return NULL;
 	a %= n;
 	int *toRet = malloc(sizeof(int));

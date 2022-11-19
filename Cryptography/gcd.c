@@ -19,11 +19,11 @@ void print_gcd(int a, int b) {
 	int gcd = 0;
 	int m = 0;
 	int n = 0;
-	GCD(a, b, &gcd, &m, &n);
+	extended_gcd(a, b, &gcd, &m, &n);
 	printf("%d = %d * %d + %d * %d\n", gcd, m, a, n, b);
 }
 
-void GCD(int a, int b, int *gcd, int *m, int *n) {
+void extended_gcd(int a, int b, int *gcd, int *m, int *n) {
 	if (a == 0) {
 		*gcd = b;
 		*m = 0;
@@ -34,7 +34,7 @@ void GCD(int a, int b, int *gcd, int *m, int *n) {
 	int q = a / b;
 	int r = a % b;
 	
-	GCD(b, r, gcd, m, n);
+	extended_gcd(b, r, gcd, m, n);
 	
 	int t = *n;
 	*n = *m - q * *n;
