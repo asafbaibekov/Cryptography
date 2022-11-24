@@ -33,5 +33,8 @@ int main(int argc, const char * argv[]) {
 			printf("is %d a prime number: %d\n", i, check);
 	}
 	
+	long long prime = generate_long_prime();
+	printf("generated long prime: %lld\n", prime);
+	
 	return 0;
 }

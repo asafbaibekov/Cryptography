@@ -54,3 +54,22 @@ bool check_primility(unsigned long long n) {
 			return false;
 	return true;
 }
+
+int32_t rand_32_bits_number(void) {
+	int32_t x = rand() & 0xff;
+	x |= (rand() & 0xff) << 8;
+	x |= (rand() & 0xff) << 16;
+	x |= (rand() & 0xff) << 24;
+	x |= 0x80000001;
+	return x;
+}
+
+
+unsigned long long generate_long_prime(void) {
+	for (int i = 0; i < ATTEMPTS; i++) {
+		long long number = rand_32_bits_number();
+		if (check_primility(number))
+			return number;
+	}
+	return 0;
+}
