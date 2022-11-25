@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <math.h>
 #include "gcd.h"
 #include "square-and-multiply.h"
 
@@ -21,8 +22,8 @@ bool single_test(unsigned long long d, unsigned long long n);
 
 bool check_primility(unsigned long long n);
 
-int32_t rand_32_bits_number(void);
+unsigned long long rand_32_bits_number(void);
 
-unsigned long long generate_long_prime(void);
+unsigned long long generate_long_prime(int *attempts);
 
 #endif /* primary_test_h */

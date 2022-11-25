@@ -55,21 +55,31 @@ bool check_primility(unsigned long long n) {
 	return true;
 }
 
-int32_t rand_32_bits_number(void) {
-	int32_t x = rand() & 0xff;
-	x |= (rand() & 0xff) << 8;
-	x |= (rand() & 0xff) << 16;
-	x |= (rand() & 0xff) << 24;
-	x |= 0x80000001;
-	return x;
+unsigned long long rand_32_bits_number(void) {
+	unsigned long long toRet = 0;
+	char array[32];
+	array[0] = 1;
+	for (char i = 1; i < 31; i++) {
+		int r = rand();
+		array[i] = r % 2;
+	}
+	array[31] = 1;
+	for (char i = 0; i < 32; i++) {
+		toRet += array[i] * pow(2, i);
+	}
+	return toRet;
 }
 
-
-unsigned long long generate_long_prime(void) {
-	for (int i = 0; i < ATTEMPTS; i++) {
-		long long number = rand_32_bits_number();
-		if (check_primility(number))
-			return number;
+unsigned long long generate_long_prime(int *attempts) {
+	*attempts = 0;
+	long long number = rand_32_bits_number();
+	while (check_primility(number) == false) {
+		long long newnumber = rand_32_bits_number();
+		while(number == newnumber) {
+			newnumber = rand_32_bits_number();
+		}
+		number = newnumber;
+		(*attempts)++;
 	}
-	return 0;
+	return number;
 }

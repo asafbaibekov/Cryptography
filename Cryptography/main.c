@@ -32,9 +32,12 @@ int main(int argc, const char * argv[]) {
 		if (check == 1)
 			printf("is %d a prime number: %d\n", i, check);
 	}
-	
-	long long prime = generate_long_prime();
+	printf("generating long prime...\n");
+	int attempts = 0;
+	long long prime = generate_long_prime(&attempts);
 	printf("generated long prime: %lld\n", prime);
+	printf("number of attemtps are: %d\n", attempts);
+	printf("======================================\n");
 	
 	return 0;
 }
