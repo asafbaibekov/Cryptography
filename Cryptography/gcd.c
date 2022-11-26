@@ -32,8 +32,8 @@ int gcd(int a, int b) {
 }
 
 void extended_gcd(int a, int b, int *gcd, int *m, int *n) {
-	if (a == 0) {
-		*gcd = b;
+	if (b == 0) {
+		*gcd = a;
 		*m = 0;
 		*n = 1;
 		return;
