@@ -12,10 +12,10 @@
 
 void scan_for_gcd(int *a, int *b);
 
-void print_gcd(int a, int b);
+void print_gcd(long long a, long long b);
 
 int gcd(int a, int b);
 
-void extended_gcd(int a, int b, int *gcd, int *m, int *n);
+void extended_gcd(long long a, long long b, long long *gcd, long long *m, long long *n);
 
 #endif /* gcd_h */

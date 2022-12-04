@@ -18,6 +18,6 @@ void print_inverse(int a, int n);
 
 void print_inverse_error(int a, int n, int gcd);
 
-int *inverse(int a, int n);
+long long *inverse(long long a, long long n);
 
 #endif /* inverse_h */

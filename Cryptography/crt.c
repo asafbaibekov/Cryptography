@@ -36,7 +36,7 @@ ModularEquation *crt(ModularEquation *modularEquations[], size_t size) {
 		N *= modularEquations[i]->n;
 	for (int i = 0; i < size; i++) {
 		int n_i = N / modularEquations[i]->n;
-		int *x_i = inverse(n_i, modularEquations[i]->n);
+		long long *x_i = inverse(n_i, modularEquations[i]->n);
 		if (x_i == NULL) return NULL;
 		bnx_sum += modularEquations[i]->b * n_i * (*x_i);
 		free(x_i);
