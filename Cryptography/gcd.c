@@ -32,19 +32,14 @@ int gcd(int a, int b) {
 }
 
 void extended_gcd(int a, int b, int *gcd, int *m, int *n) {
-	if (b == 0) {
-		*gcd = a;
+	if (a == 0) {
+		*gcd = b;
 		*m = 0;
 		*n = 1;
 		return;
 	}
-	
-	int q = a / b;
-	int r = a % b;
-	
-	extended_gcd(b, r, gcd, m, n);
-	
-	int t = *n;
-	*n = *m - q * *n;
-	*m = t;
+	int m1, n1;
+	extended_gcd(b % a, a, gcd, &m1, &n1);
+	*m = n1 - (b / a) * m1;
+	*n = m1;
 }
