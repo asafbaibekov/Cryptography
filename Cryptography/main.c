@@ -13,21 +13,28 @@
 #include "primary-test.h"
 #include "diffie-hellman.h"
 
-int main(int argc, const char * argv[]) {
-	printf("======================================\n");
+void main_gcd(void) {
 	int a, b;
 	scan_for_gcd(&a, &b);
 	print_gcd(a, b);
-	printf("======================================\n");
+}
+
+void main_inverse(void) {
+	int a, b;
 	scan_for_inverse(&a, &b);
 	print_inverse(a, b);
-	printf("======================================\n");
+}
+
+void main_crt(void) {
 	print_demo_crt();
-	printf("======================================\n");
+}
+
+void main_square_and_multiply(void) {
 	print_for_exponent(2, 79, 101);
 	print_for_exponent(3, 197, 101);
-	printf("======================================\n");
-	
+}
+
+void main_primary_test(void) {
 	for (int i = 0; i < 100; i++) {
 		int check = check_primility(i);
 		if (check == 1)
@@ -38,8 +45,9 @@ int main(int argc, const char * argv[]) {
 	long long prime = generate_long_prime(&attempts);
 	printf("generated long prime: %lld\n", prime);
 	printf("number of attemtps are: %d\n", attempts);
-	printf("======================================\n");
-	
+}
+
+void main_diffie_hellman(void) {
 	int alpha = 2;
 	long long public_key = generate_keyPair(BIG_PRIME, alpha);
 	long long ephemeral_key;
@@ -52,6 +60,20 @@ int main(int argc, const char * argv[]) {
 	long long message;
 	DH_decrypt(BIG_PRIME, alpha, ephemeral_key, cipher_text, &message);
 	printf("message: %lld\n", message);
-	
+}
+
+int main(int argc, const char * argv[]) {
+	printf("======================================\n");
+	main_gcd();
+	printf("======================================\n");
+	main_inverse();
+	printf("======================================\n");
+	main_crt();
+	printf("======================================\n");
+	main_square_and_multiply();
+	printf("======================================\n");
+	main_primary_test();
+	printf("======================================\n");
+	main_diffie_hellman();
 	return 0;
 }
