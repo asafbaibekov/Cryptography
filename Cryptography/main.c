@@ -11,6 +11,7 @@
 #include "crt.h"
 #include "square-and-multiply.h"
 #include "primary-test.h"
+#include "diffie-hellman.h"
 
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
@@ -38,6 +39,19 @@ int main(int argc, const char * argv[]) {
 	printf("generated long prime: %lld\n", prime);
 	printf("number of attemtps are: %d\n", attempts);
 	printf("======================================\n");
+	
+	int alpha = 2;
+	long long public_key = generate_keyPair(BIG_PRIME, alpha);
+	long long ephemeral_key;
+	long long cipher_text;
+	DH_encrypt(BIG_PRIME, alpha, public_key, 12345, &ephemeral_key, &cipher_text);
+	
+	printf("ephemeral_key: %lld\n", ephemeral_key);
+	printf("cipher_text: %lld\n", cipher_text);
+	
+	long long message;
+	DH_decrypt(BIG_PRIME, alpha, ephemeral_key, cipher_text, &message);
+	printf("message: %lld\n", message);
 	
 	return 0;
 }
