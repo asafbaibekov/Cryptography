@@ -12,6 +12,7 @@
 #include "square-and-multiply.h"
 #include "primary-test.h"
 #include "diffie-hellman.h"
+#include "elliptic-curve.h"
 
 void main_gcd(void) {
 	int a, b;
@@ -62,6 +63,28 @@ void main_diffie_hellman(void) {
 	printf("message: %lld\n", message);
 }
 
+void main_elliptic_curve(void) {
+	EllipticCurve *curve = initEllipticCurve(1, 6, 11);
+	EllipticCurvePoint *point1 = initEllipticCurvePoint(5, 9);
+	EllipticCurvePoint *point2 = NULL;
+	for (int i = 0; i < 13; i++) {
+		EllipticCurvePoint *point_added = add_two_point_on_curve(point1, point2, curve);
+		printf("%d:\t", i);
+		printEllipticCurvePoint(point1);
+		printf(" + ");
+		printEllipticCurvePoint(point2);
+		printf(" = \t");
+		printEllipticCurvePoint(point_added);
+		printf("\n");
+		free(point2);
+		point2 = copyEllipticCurvePoint(point_added);
+		free(point_added);
+	}
+	free(point2);
+	free(point1);
+	free(curve);
+}
+
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
 	main_gcd();
@@ -75,5 +98,7 @@ int main(int argc, const char * argv[]) {
 	main_primary_test();
 	printf("======================================\n");
 	main_diffie_hellman();
+	printf("======================================\n");
+	main_elliptic_curve();
 	return 0;
 }

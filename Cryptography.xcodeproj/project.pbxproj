@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D11DDC229440E1D00437C87 /* elliptic-curve.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D11DDC129440E1D00437C87 /* elliptic-curve.c */; };
 		2D13CB052916997E0082948F /* inverse.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D13CB042916997E0082948F /* inverse.c */; };
 		2D13CB0B2916ABC50082948F /* crt.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D13CB0A2916ABC50082948F /* crt.c */; };
 		2D13CB0E2916B9DA0082948F /* ModularEquation.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D13CB0D2916B9DA0082948F /* ModularEquation.c */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D11DDC029440E1D00437C87 /* elliptic-curve.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "elliptic-curve.h"; sourceTree = "<group>"; };
+		2D11DDC129440E1D00437C87 /* elliptic-curve.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "elliptic-curve.c"; sourceTree = "<group>"; };
 		2D13CB032916997E0082948F /* inverse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inverse.h; sourceTree = "<group>"; };
 		2D13CB042916997E0082948F /* inverse.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = inverse.c; sourceTree = "<group>"; };
 		2D13CB092916ABC50082948F /* crt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crt.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				2DA31E722928D27C0063A096 /* primary-test.c */,
 				2D148035293C73F4007DC19C /* diffie-hellman.h */,
 				2D148036293C73F4007DC19C /* diffie-hellman.c */,
+				2D11DDC029440E1D00437C87 /* elliptic-curve.h */,
+				2D11DDC129440E1D00437C87 /* elliptic-curve.c */,
 			);
 			path = Cryptography;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				2D3BB24A290D3D1900AC5465 /* gcd.c in Sources */,
 				2D3BB242290D3CF200AC5465 /* main.c in Sources */,
 				2D13CB052916997E0082948F /* inverse.c in Sources */,
+				2D11DDC229440E1D00437C87 /* elliptic-curve.c in Sources */,
 				2D13CB0B2916ABC50082948F /* crt.c in Sources */,
 				2D148037293C73F4007DC19C /* diffie-hellman.c in Sources */,
 				2D13CB0E2916B9DA0082948F /* ModularEquation.c in Sources */,
