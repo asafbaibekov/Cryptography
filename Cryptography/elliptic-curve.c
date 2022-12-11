@@ -76,6 +76,24 @@ bool isPointsEqual(EllipticCurvePoint *point1, EllipticCurvePoint *point2) {
 	return point1->x == point2->x && point1->y == point2->y;
 }
 
+void printEllipticCurve(EllipticCurve *curve) {
+	if (curve == NULL) return;
+	printf("y^2 = x^3 ");
+	if (curve->a >= 0)
+		if (curve->a != 1)
+			printf("+ %d", curve->a);
+		else
+			printf("+ ");
+	else
+		printf("- %d", curve->a * -1);
+	printf("x ");
+	if (curve->b >= 0)
+		printf("+ %d", curve->b);
+	else
+		printf("- %d", curve->b * -1);
+	printf(" mod %d\n", curve->m);
+}
+
 void printEllipticCurvePoint(EllipticCurvePoint *point) {
 	if (point == NULL)
 		printf("(0, 0)");

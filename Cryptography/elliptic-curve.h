@@ -35,6 +35,8 @@ EllipticCurvePoint *add_two_point_on_curve(EllipticCurvePoint *point1, EllipticC
 
 bool isPointsEqual(EllipticCurvePoint *point1, EllipticCurvePoint *point2);
 
+void printEllipticCurve(EllipticCurve *curve);
+
 void printEllipticCurvePoint(EllipticCurvePoint *point);
 
 #endif /* elliptic_curve_h */

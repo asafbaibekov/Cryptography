@@ -65,6 +65,8 @@ void main_diffie_hellman(void) {
 
 void main_elliptic_curve(void) {
 	EllipticCurve *curve = initEllipticCurve(1, 6, 11);
+	printEllipticCurve(curve);
+	printf("\n");
 	EllipticCurvePoint *point1 = initEllipticCurvePoint(5, 9);
 	EllipticCurvePoint *point2 = NULL;
 	for (int i = 0; i < 13; i++) {
