@@ -14,6 +14,7 @@
 		2D148037293C73F4007DC19C /* diffie-hellman.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D148036293C73F4007DC19C /* diffie-hellman.c */; };
 		2D3BB242290D3CF200AC5465 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BB241290D3CF200AC5465 /* main.c */; };
 		2D3BB24A290D3D1900AC5465 /* gcd.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BB249290D3D1900AC5465 /* gcd.c */; };
+		2D8F0103294D0B1B00FF064D /* solve-dlp.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F0102294D0B1B00FF064D /* solve-dlp.c */; };
 		2DA31E732928D27C0063A096 /* primary-test.c in Sources */ = {isa = PBXBuildFile; fileRef = 2DA31E722928D27C0063A096 /* primary-test.c */; };
 		2DBBD7FB291EA44500D2D5D8 /* square-and-multiply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBD7FA291EA44500D2D5D8 /* square-and-multiply.c */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,8 @@
 		2D3BB241290D3CF200AC5465 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		2D3BB248290D3D1900AC5465 /* gcd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gcd.h; sourceTree = "<group>"; };
 		2D3BB249290D3D1900AC5465 /* gcd.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gcd.c; sourceTree = "<group>"; };
+		2D8F0101294D0B1B00FF064D /* solve-dlp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "solve-dlp.h"; sourceTree = "<group>"; };
+		2D8F0102294D0B1B00FF064D /* solve-dlp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "solve-dlp.c"; sourceTree = "<group>"; };
 		2DA31E712928D27C0063A096 /* primary-test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "primary-test.h"; sourceTree = "<group>"; };
 		2DA31E722928D27C0063A096 /* primary-test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "primary-test.c"; sourceTree = "<group>"; };
 		2DBBD7F9291EA44500D2D5D8 /* square-and-multiply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "square-and-multiply.h"; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				2D148036293C73F4007DC19C /* diffie-hellman.c */,
 				2D11DDC029440E1D00437C87 /* elliptic-curve.h */,
 				2D11DDC129440E1D00437C87 /* elliptic-curve.c */,
+				2D8F0101294D0B1B00FF064D /* solve-dlp.h */,
+				2D8F0102294D0B1B00FF064D /* solve-dlp.c */,
 			);
 			path = Cryptography;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8F0103294D0B1B00FF064D /* solve-dlp.c in Sources */,
 				2DA31E732928D27C0063A096 /* primary-test.c in Sources */,
 				2DBBD7FB291EA44500D2D5D8 /* square-and-multiply.c in Sources */,
 				2D3BB24A290D3D1900AC5465 /* gcd.c in Sources */,

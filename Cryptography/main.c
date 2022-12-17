@@ -13,6 +13,7 @@
 #include "primary-test.h"
 #include "diffie-hellman.h"
 #include "elliptic-curve.h"
+#include "solve-dlp.h"
 
 void main_gcd(void) {
 	int a, b;
@@ -87,6 +88,24 @@ void main_elliptic_curve(void) {
 	free(curve);
 }
 
+void main_solve_dlp(void) {
+	long long *bsgs_private_key = BSGS_solve(2, 37, 131);
+	if (bsgs_private_key != NULL) {
+		printf("2^x === 37 mod 131\n");
+		printf("x = %lld\n", *bsgs_private_key);
+		free(bsgs_private_key);
+	}
+	
+	printf("\n");
+	
+	long long *pollard_private_key = pollard_solve(3, 21, 59);
+	if (pollard_private_key != NULL) {
+		printf("3^x === 21 mod 59\n");
+		printf("x = %lld\n", *pollard_private_key);
+		free(pollard_private_key);
+	}
+}
+
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
 	main_gcd();
@@ -102,5 +121,7 @@ int main(int argc, const char * argv[]) {
 	main_diffie_hellman();
 	printf("======================================\n");
 	main_elliptic_curve();
+	printf("======================================\n");
+	main_solve_dlp();
 	return 0;
 }
