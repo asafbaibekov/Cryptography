@@ -10,7 +10,7 @@
 
 bool is_carmichael_number(int n) {
 	for (int a = 2; a < n; a++) {
-		int g = gcd(a, n);
+		int64_t g = gcd(a, n);
 		int64_t e = exponent(a, n - 1, n);
 		if (g == 1 && e != 1) {
 			return false;

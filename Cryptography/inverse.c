@@ -16,12 +16,12 @@ void scan_for_inverse(int *a, int *n) {
 }
 
 void print_inverse(int a, int n) {
-	int g = gcd(a, n);
-	printf("%dx === %d (mod %d)\n", a, g, n);
+	int64_t g = gcd(a, n);
+	printf("%dx === %lld (mod %d)\n", a, g, n);
 	int64_t *inv = inverse(a, n);
 	if (inv == NULL) {
 		printf("Can't find the inverse between %d and %d\n", a, n);
-		printf("because the gcd between them is %d\n", g);
+		printf("because the gcd between them is %lld\n", g);
 		printf("and it isn't equal to 1\n");
 		return;
 	}
