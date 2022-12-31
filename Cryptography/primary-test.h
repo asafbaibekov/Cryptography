@@ -23,6 +23,10 @@ bool single_test(uint32_t d, uint32_t n);
 
 bool check_primility(uint32_t n);
 
+uint16_t rand_16_bits_number(void);
+
+uint16_t generate_16bits_prime(int *attempts);
+
 uint32_t rand_32_bits_number(void);
 
 uint32_t generate_32bits_prime(int *attempts);

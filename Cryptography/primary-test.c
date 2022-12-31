@@ -54,6 +54,35 @@ bool check_primility(uint32_t n) {
 	return true;
 }
 
+uint16_t rand_16_bits_number(void) {
+	uint16_t toRet = 0;
+	char array[16];
+	array[0] = 1;
+	for (char i = 1; i < 15; i++) {
+		int r = rand();
+		array[i] = r % 2;
+	}
+	array[15] = 1;
+	for (char i = 0; i < 15; i++) {
+		toRet += array[i] * pow(2, i);
+	}
+	return toRet;
+}
+
+uint16_t generate_16bits_prime(int *attempts) {
+	if (attempts != NULL) *attempts = 0;
+	int32_t number = rand_16_bits_number();
+	while (check_primility(number) == false) {
+		int32_t newnumber = rand_16_bits_number();
+		while(number == newnumber) {
+			newnumber = rand_16_bits_number();
+		}
+		number = newnumber;
+		if (attempts != NULL) (*attempts)++;
+	}
+	return number;
+}
+
 uint32_t rand_32_bits_number(void) {
 	uint32_t toRet = 0;
 	char array[32];
