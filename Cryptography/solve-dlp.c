@@ -8,16 +8,16 @@
 #include "solve-dlp.h"
 
 // space complexity - O(√p)
-int64_t *BSGS_solve(int g, int y, int p) {
+uint64_t *BSGS_solve(int g, int y, int p) {
 	int m = sqrt(p);
 	int64_t *inv = inverse(g, p);
 	
 	if (inv == NULL) return NULL;
-	int64_t e = exponent(*inv, m, p);
+	uint64_t e = exponent(*inv, m, p);
 	free(inv);
 	
-	int64_t *baby_array = malloc(sizeof(int64_t) * m);
-	int64_t *giant_array = malloc(sizeof(int64_t) * m);
+	uint64_t *baby_array = malloc(sizeof(uint64_t) * m);
+	uint64_t *giant_array = malloc(sizeof(uint64_t) * m);
 	
 	for (int i = 0; i < m; i++) {
 		baby_array[i] = exponent(g, i, p);
@@ -25,10 +25,10 @@ int64_t *BSGS_solve(int g, int y, int p) {
 	}
 	
 	for (int i = 0; i < m; i++) {
-		int64_t giant_element = giant_array[i];
+		uint64_t giant_element = giant_array[i];
 		for (int j = 0; j < m; j++) {
 			if (giant_element == baby_array[j]) {
-				int64_t *toRet = malloc(sizeof(int64_t));
+				uint64_t *toRet = malloc(sizeof(uint64_t));
 				*toRet = m * i + j;
 				return toRet;
 			}

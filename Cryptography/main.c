@@ -53,7 +53,7 @@ void main_primary_test(void) {
 void main_diffie_hellman(void) {
 	int alpha = 2;
 	int64_t public_key = DH_generate_keyPair(BIG_PRIME, alpha);
-	int64_t ephemeral_key;
+	uint64_t ephemeral_key;
 	int64_t cipher_text;
 	DH_encrypt(BIG_PRIME, alpha, public_key, 12345, &ephemeral_key, &cipher_text);
 	
@@ -90,10 +90,10 @@ void main_elliptic_curve(void) {
 }
 
 void main_solve_dlp(void) {
-	int64_t *bsgs_private_key = BSGS_solve(2, 37, 131);
+	uint64_t *bsgs_private_key = BSGS_solve(2, 37, 131);
 	if (bsgs_private_key != NULL) {
 		printf("2^x === 37 mod 131\n");
-		printf("x = %lld\n", *bsgs_private_key);
+		printf("x = %llu\n", *bsgs_private_key);
 		free(bsgs_private_key);
 	}
 	

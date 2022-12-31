@@ -11,7 +11,7 @@
 bool is_carmichael_number(int n) {
 	for (int a = 2; a < n; a++) {
 		int64_t g = gcd(a, n);
-		int64_t e = exponent(a, n - 1, n);
+		uint64_t e = exponent(a, n - 1, n);
 		if (g == 1 && e != 1) {
 			return false;
 		}
@@ -22,7 +22,7 @@ bool is_carmichael_number(int n) {
 bool single_test(uint32_t m, uint32_t n) {
 	int a = 2 + rand() % (n - 4);
 
-	int64_t x = exponent(a, m, n);
+	uint64_t x = exponent(a, m, n);
 	if (x < 0)
 		x = x + n;
 	if (x == 1 || x == n - 1)

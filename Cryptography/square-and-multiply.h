@@ -16,6 +16,6 @@
 // x^e (mod p)
 void print_for_exponent(int x, int e, int p);
 
-int64_t exponent(int64_t x, int64_t y, int64_t mod);
+uint64_t exponent(uint64_t x, uint64_t y, uint64_t mod);
 
 #endif /* square_and_multiply_h */

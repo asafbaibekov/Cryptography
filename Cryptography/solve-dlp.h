@@ -18,7 +18,7 @@
 
 int64_t *linearCongruence(int64_t a, int64_t b, int64_t n, int64_t *size);
 
-int64_t *BSGS_solve(int g, int y, int p);
+uint64_t *BSGS_solve(int g, int y, int p);
 
 int64_t *pollard_solve(int g, int y, int p);
 
