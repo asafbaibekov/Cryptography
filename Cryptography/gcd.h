@@ -15,7 +15,7 @@ void scan_for_gcd(int *a, int *b);
 
 void print_gcd(int64_t a, int64_t b);
 
-int64_t gcd(int64_t a, int64_t b);
+uint64_t gcd(uint64_t a, uint64_t b);
 
 void extended_gcd(int64_t a, int64_t b, int64_t *gcd, int64_t *m, int64_t *n);
 

@@ -23,7 +23,7 @@ void print_gcd(int64_t a, int64_t b) {
 	printf("%lld = %lld * %lld + %lld * %lld\n", gcd, m, a, n, b);
 }
 
-int64_t gcd(int64_t a, int64_t b) {
+uint64_t gcd(uint64_t a, uint64_t b) {
 	if (a < b)
 		return gcd(b, a);
 	if (a % b == 0)
