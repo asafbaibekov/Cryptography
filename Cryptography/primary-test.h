@@ -25,6 +25,6 @@ bool check_primility(uint32_t n);
 
 uint32_t rand_32_bits_number(void);
 
-uint32_t generate_long_prime(int *attempts);
+uint32_t generate_32bits_prime(int *attempts);
 
 #endif /* primary_test_h */

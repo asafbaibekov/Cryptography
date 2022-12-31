@@ -69,7 +69,7 @@ uint32_t rand_32_bits_number(void) {
 	return toRet;
 }
 
-uint32_t generate_long_prime(int *attempts) {
+uint32_t generate_32bits_prime(int *attempts) {
 	if (attempts != NULL) *attempts = 0;
 	int32_t number = rand_32_bits_number();
 	while (check_primility(number) == false) {
