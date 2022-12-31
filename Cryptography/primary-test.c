@@ -19,7 +19,7 @@ bool is_carmichael_number(int n) {
 	return true;
 }
 
-bool single_test(uint64_t m, uint64_t n) {
+bool single_test(uint32_t m, uint32_t n) {
 	int a = 2 + rand() % (n - 4);
 
 	int64_t x = exponent(a, m, n);
@@ -39,13 +39,13 @@ bool single_test(uint64_t m, uint64_t n) {
 	return false;
 }
 
-bool check_primility(uint64_t n) {
+bool check_primility(uint32_t n) {
 	if (n <= 1 || n == 4)
 		return false;
 	if (n <= 3)
 		return true;
 	
-	uint64_t m = n - 1;
+	uint32_t m = n - 1;
 	while (m % 2 == 0)
 		m /= 2;
 	for (int i = 0; i < ATTEMPTS; i++)
@@ -54,8 +54,8 @@ bool check_primility(uint64_t n) {
 	return true;
 }
 
-uint64_t rand_32_bits_number(void) {
-	uint64_t toRet = 0;
+uint32_t rand_32_bits_number(void) {
+	uint32_t toRet = 0;
 	char array[32];
 	array[0] = 1;
 	for (char i = 1; i < 31; i++) {
@@ -69,11 +69,11 @@ uint64_t rand_32_bits_number(void) {
 	return toRet;
 }
 
-uint64_t generate_long_prime(int *attempts) {
+uint32_t generate_long_prime(int *attempts) {
 	if (attempts != NULL) *attempts = 0;
-	int64_t number = rand_32_bits_number();
+	int32_t number = rand_32_bits_number();
 	while (check_primility(number) == false) {
-		int64_t newnumber = rand_32_bits_number();
+		int32_t newnumber = rand_32_bits_number();
 		while(number == newnumber) {
 			newnumber = rand_32_bits_number();
 		}

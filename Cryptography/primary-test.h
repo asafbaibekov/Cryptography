@@ -19,12 +19,12 @@
 
 bool is_carmichael_number(int n);
 
-bool single_test(uint64_t d, uint64_t n);
+bool single_test(uint32_t d, uint32_t n);
 
-bool check_primility(uint64_t n);
+bool check_primility(uint32_t n);
 
-uint64_t rand_32_bits_number(void);
+uint32_t rand_32_bits_number(void);
 
-uint64_t generate_long_prime(int *attempts);
+uint32_t generate_long_prime(int *attempts);
 
 #endif /* primary_test_h */
