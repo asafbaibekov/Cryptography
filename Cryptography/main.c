@@ -14,6 +14,7 @@
 #include "diffie-hellman.h"
 #include "elliptic-curve.h"
 #include "solve-dlp.h"
+#include "rsa.h"
 
 void main_gcd(void) {
 	int a, b;
@@ -107,6 +108,19 @@ void main_solve_dlp(void) {
 	}
 }
 
+void main_rsa(void) {
+	uint32_t e, n;
+	RSA_generate_keyPair(&e, &n);
+	
+	uint64_t cipher = 0;
+	RSA_encrypt(n, e, 20, &cipher);
+	printf("cipher: %lld\n", cipher);
+	
+	int64_t message = 0;
+	RSA_decrypt(e, cipher, &message);
+	printf("message: %lld\n", message);
+}
+
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
 	main_gcd();
@@ -124,5 +138,7 @@ int main(int argc, const char * argv[]) {
 	main_elliptic_curve();
 	printf("======================================\n");
 	main_solve_dlp();
+	printf("======================================\n");
+	main_rsa();
 	return 0;
 }

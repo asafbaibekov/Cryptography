@@ -12,6 +12,7 @@
 		2D13CB0B2916ABC50082948F /* crt.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D13CB0A2916ABC50082948F /* crt.c */; };
 		2D13CB0E2916B9DA0082948F /* ModularEquation.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D13CB0D2916B9DA0082948F /* ModularEquation.c */; };
 		2D148037293C73F4007DC19C /* diffie-hellman.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D148036293C73F4007DC19C /* diffie-hellman.c */; };
+		2D360D112960D88800E11CF0 /* rsa.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D360D102960D88800E11CF0 /* rsa.c */; };
 		2D3BB242290D3CF200AC5465 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BB241290D3CF200AC5465 /* main.c */; };
 		2D3BB24A290D3D1900AC5465 /* gcd.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D3BB249290D3D1900AC5465 /* gcd.c */; };
 		2D8F0103294D0B1B00FF064D /* solve-dlp.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F0102294D0B1B00FF064D /* solve-dlp.c */; };
@@ -42,6 +43,8 @@
 		2D13CB0D2916B9DA0082948F /* ModularEquation.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ModularEquation.c; sourceTree = "<group>"; };
 		2D148035293C73F4007DC19C /* diffie-hellman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diffie-hellman.h"; sourceTree = "<group>"; };
 		2D148036293C73F4007DC19C /* diffie-hellman.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "diffie-hellman.c"; sourceTree = "<group>"; };
+		2D360D0F2960D88800E11CF0 /* rsa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		2D360D102960D88800E11CF0 /* rsa.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rsa.c; sourceTree = "<group>"; };
 		2D3BB23E290D3CF200AC5465 /* Cryptography */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cryptography; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3BB241290D3CF200AC5465 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		2D3BB248290D3D1900AC5465 /* gcd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gcd.h; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				2D11DDC129440E1D00437C87 /* elliptic-curve.c */,
 				2D8F0101294D0B1B00FF064D /* solve-dlp.h */,
 				2D8F0102294D0B1B00FF064D /* solve-dlp.c */,
+				2D360D0F2960D88800E11CF0 /* rsa.h */,
+				2D360D102960D88800E11CF0 /* rsa.c */,
 			);
 			path = Cryptography;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D360D112960D88800E11CF0 /* rsa.c in Sources */,
 				2D8F0103294D0B1B00FF064D /* solve-dlp.c in Sources */,
 				2DA31E732928D27C0063A096 /* primary-test.c in Sources */,
 				2DBBD7FB291EA44500D2D5D8 /* square-and-multiply.c in Sources */,
