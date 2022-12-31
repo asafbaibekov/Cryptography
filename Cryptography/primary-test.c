@@ -71,7 +71,7 @@ unsigned long long rand_32_bits_number(void) {
 }
 
 unsigned long long generate_long_prime(int *attempts) {
-	*attempts = 0;
+	if (attempts != NULL) *attempts = 0;
 	long long number = rand_32_bits_number();
 	while (check_primility(number) == false) {
 		long long newnumber = rand_32_bits_number();
@@ -79,7 +79,7 @@ unsigned long long generate_long_prime(int *attempts) {
 			newnumber = rand_32_bits_number();
 		}
 		number = newnumber;
-		(*attempts)++;
+		if (attempts != NULL) (*attempts)++;
 	}
 	return number;
 }
