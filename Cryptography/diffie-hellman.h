@@ -15,7 +15,7 @@
 
 #define BIG_PRIME 2291447117
 
-long long generate_keyPair(long long p, int alpha);
+long long DH_generate_keyPair(long long p, int alpha);
 
 void DH_encrypt(long long p, int alpha, long long Kpub, int message, long long *ephemeral_key, long long *cipher);
 

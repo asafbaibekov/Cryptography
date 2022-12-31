@@ -52,7 +52,7 @@ void main_primary_test(void) {
 
 void main_diffie_hellman(void) {
 	int alpha = 2;
-	long long public_key = generate_keyPair(BIG_PRIME, alpha);
+	long long public_key = DH_generate_keyPair(BIG_PRIME, alpha);
 	long long ephemeral_key;
 	long long cipher_text;
 	DH_encrypt(BIG_PRIME, alpha, public_key, 12345, &ephemeral_key, &cipher_text);
