@@ -48,7 +48,6 @@ bool check_primility(unsigned long long n) {
 	unsigned long long m = n - 1;
 	while (m % 2 == 0)
 		m /= 2;
-	srand((unsigned int) time(NULL));
 	for (int i = 0; i < ATTEMPTS; i++)
 		if (!single_test(m, n))
 			return false;

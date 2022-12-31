@@ -44,6 +44,7 @@ void main_primary_test(void) {
 	}
 	printf("generating long prime...\n");
 	int attempts = 0;
+	srand((unsigned int) time(NULL));
 	long long prime = generate_long_prime(&attempts);
 	printf("generated long prime: %lld\n", prime);
 	printf("number of attemtps are: %d\n", attempts);
