@@ -13,17 +13,18 @@
 #include <stdbool.h>
 #include <time.h>
 #include <math.h>
+#include <stdint.h>
 #include "gcd.h"
 #include "square-and-multiply.h"
 
 bool is_carmichael_number(int n);
 
-bool single_test(unsigned long long d, unsigned long long n);
+bool single_test(uint64_t d, uint64_t n);
 
-bool check_primility(unsigned long long n);
+bool check_primility(uint64_t n);
 
-unsigned long long rand_32_bits_number(void);
+uint64_t rand_32_bits_number(void);
 
-unsigned long long generate_long_prime(int *attempts);
+uint64_t generate_long_prime(int *attempts);
 
 #endif /* primary_test_h */

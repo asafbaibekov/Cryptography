@@ -10,11 +10,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 
 // x^e (mod p)
 void print_for_exponent(int x, int e, int p);
 
-long long exponent(long long x, long long y, long long mod);
+int64_t exponent(int64_t x, int64_t y, int64_t mod);
 
 #endif /* square_and_multiply_h */

@@ -15,10 +15,10 @@ void scan_for_gcd(int *a, int *b) {
 	scanf("%d", b);
 }
 
-void print_gcd(long long a, long long b) {
-	long long gcd = 0;
-	long long m = 0;
-	long long n = 0;
+void print_gcd(int64_t a, int64_t b) {
+	int64_t gcd = 0;
+	int64_t m = 0;
+	int64_t n = 0;
 	extended_gcd(a, b, &gcd, &m, &n);
 	printf("%lld = %lld * %lld + %lld * %lld\n", gcd, m, a, n, b);
 }
@@ -31,14 +31,14 @@ int gcd(int a, int b) {
 	return gcd(b, a % b);
 }
 
-void extended_gcd(long long a, long long b, long long *gcd, long long *m, long long *n) {
+void extended_gcd(int64_t a, int64_t b, int64_t *gcd, int64_t *m, int64_t *n) {
 	if (a == 0) {
 		*gcd = b;
 		*m = 0;
 		*n = 1;
 		return;
 	}
-	long long m1, n1;
+	int64_t m1, n1;
 	extended_gcd(b % a, a, gcd, &m1, &n1);
 	*m = n1 - (b / a) * m1;
 	*n = m1;

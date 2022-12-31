@@ -60,7 +60,7 @@ EllipticCurvePoint *add_two_point_on_curve(EllipticCurvePoint *point1, EllipticC
 		if (y < 0) y += curve->m;
 		return initEllipticCurvePoint(x, y);
 	} else {
-		long long *inv = inverse(s_denominator, curve->m);
+		int64_t *inv = inverse(s_denominator, curve->m);
 		if (inv == NULL) return NULL;
 		int s = (s_numerator * *inv) % curve->m;
 		int x = (((int) pow(s, 2)) - point1->x - point2->x) % curve->m;

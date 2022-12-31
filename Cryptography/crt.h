@@ -9,6 +9,7 @@
 #define crt_h
 
 #include <stdio.h>
+#include <stdint.h>
 #include "ModularEquation.h"
 #include "inverse.h"
 

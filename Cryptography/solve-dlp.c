@@ -8,16 +8,16 @@
 #include "solve-dlp.h"
 
 // space complexity - O(√p)
-long long *BSGS_solve(int g, int y, int p) {
+int64_t *BSGS_solve(int g, int y, int p) {
 	int m = sqrt(p);
-	long long *inv = inverse(g, p);
+	int64_t *inv = inverse(g, p);
 	
 	if (inv == NULL) return NULL;
-	long long e = exponent(*inv, m, p);
+	int64_t e = exponent(*inv, m, p);
 	free(inv);
 	
-	long long *baby_array = malloc(sizeof(long long) * m);
-	long long *giant_array = malloc(sizeof(long long) * m);
+	int64_t *baby_array = malloc(sizeof(int64_t) * m);
+	int64_t *giant_array = malloc(sizeof(int64_t) * m);
 	
 	for (int i = 0; i < m; i++) {
 		baby_array[i] = exponent(g, i, p);
@@ -25,10 +25,10 @@ long long *BSGS_solve(int g, int y, int p) {
 	}
 	
 	for (int i = 0; i < m; i++) {
-		long long giant_element = giant_array[i];
+		int64_t giant_element = giant_array[i];
 		for (int j = 0; j < m; j++) {
 			if (giant_element == baby_array[j]) {
-				long long *toRet = malloc(sizeof(long long));
+				int64_t *toRet = malloc(sizeof(int64_t));
 				*toRet = m * i + j;
 				return toRet;
 			}
@@ -37,28 +37,28 @@ long long *BSGS_solve(int g, int y, int p) {
 	return NULL;
 }
 
-long long *linearCongruence(long long a, long long b, long long m, long long *size) {
+int64_t *linearCongruence(int64_t a, int64_t b, int64_t m, int64_t *size) {
 	a %= m;
 	b %= m;
 
-	long long u, v;
+	int64_t u, v;
 	extended_gcd(a, m, size, &u, &v);
 
 	if (b % *size != 0) {
 		*size = 0;
-		return malloc(sizeof(long long) * *size);
+		return malloc(sizeof(int64_t) * *size);
 	}
 
-	long long x = (u * (b / *size)) % m;
+	int64_t x = (u * (b / *size)) % m;
 	if (x < 0) x += m;
 
-	long long *toRet = malloc(sizeof(long long) * *size);
-	for (long long i = 0; i <= *size - 1; i++)
+	int64_t *toRet = malloc(sizeof(int64_t) * *size);
+	for (int64_t i = 0; i <= *size - 1; i++)
 		toRet[i] = (x + i * (m / *size)) % m;
 	return toRet;
 }
 
-void update(long long r, long long *a, long long *b) {
+void update(int64_t r, int64_t *a, int64_t *b) {
 	switch(r % 3) {
 		case 0: (*a)++; break;
 		case 1: (*b)++; break;
@@ -70,15 +70,15 @@ void update(long long r, long long *a, long long *b) {
 }
 
 // space comlexity - O(1)
-long long *pollard_solve(int g, int y, int p) {
-	long long a1 = 1;
-	long long b1 = 1;
+int64_t *pollard_solve(int g, int y, int p) {
+	int64_t a1 = 1;
+	int64_t b1 = 1;
 	
-	long long a2 = 1;
-	long long b2 = 1;
+	int64_t a2 = 1;
+	int64_t b2 = 1;
 	
-	long long r1 = 0;
-	long long r2 = 0;
+	int64_t r1 = 0;
+	int64_t r2 = 0;
 	
 	bool isFirstTime = true;
 	while (r1 != r2 || isFirstTime) {
@@ -94,17 +94,17 @@ long long *pollard_solve(int g, int y, int p) {
 		isFirstTime = false;
 	}
 	
-	long long B = b2 - b1;
-	long long A = a1 - a2;
+	int64_t B = b2 - b1;
+	int64_t A = a1 - a2;
 	if (A < 0)
 		A += p - 1;
-	long long size;
+	int64_t size;
 	
 	// Bx === A mod (p - 1)
-	long long *solutions = linearCongruence(B, A, p - 1, &size);
+	int64_t *solutions = linearCongruence(B, A, p - 1, &size);
 	for (int i = 0; i < size; i++) {
 		if (exponent(g, solutions[i], p) == y) {
-			long long *toRet = malloc(sizeof(long long));
+			int64_t *toRet = malloc(sizeof(int64_t));
 			*toRet = solutions[i];
 			free(solutions);
 			return toRet;

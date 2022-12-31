@@ -11,7 +11,7 @@
 bool is_carmichael_number(int n) {
 	for (int a = 2; a < n; a++) {
 		int g = gcd(a, n);
-		long long e = exponent(a, n - 1, n);
+		int64_t e = exponent(a, n - 1, n);
 		if (g == 1 && e != 1) {
 			return false;
 		}
@@ -19,10 +19,10 @@ bool is_carmichael_number(int n) {
 	return true;
 }
 
-bool single_test(unsigned long long m, unsigned long long n) {
+bool single_test(uint64_t m, uint64_t n) {
 	int a = 2 + rand() % (n - 4);
 
-	long long x = exponent(a, m, n);
+	int64_t x = exponent(a, m, n);
 	if (x < 0)
 		x = x + n;
 	if (x == 1 || x == n - 1)
@@ -39,13 +39,13 @@ bool single_test(unsigned long long m, unsigned long long n) {
 	return false;
 }
 
-bool check_primility(unsigned long long n) {
+bool check_primility(uint64_t n) {
 	if (n <= 1 || n == 4)
 		return false;
 	if (n <= 3)
 		return true;
 	
-	unsigned long long m = n - 1;
+	uint64_t m = n - 1;
 	while (m % 2 == 0)
 		m /= 2;
 	for (int i = 0; i < ATTEMPTS; i++)
@@ -54,8 +54,8 @@ bool check_primility(unsigned long long n) {
 	return true;
 }
 
-unsigned long long rand_32_bits_number(void) {
-	unsigned long long toRet = 0;
+uint64_t rand_32_bits_number(void) {
+	uint64_t toRet = 0;
 	char array[32];
 	array[0] = 1;
 	for (char i = 1; i < 31; i++) {
@@ -69,11 +69,11 @@ unsigned long long rand_32_bits_number(void) {
 	return toRet;
 }
 
-unsigned long long generate_long_prime(int *attempts) {
+uint64_t generate_long_prime(int *attempts) {
 	if (attempts != NULL) *attempts = 0;
-	long long number = rand_32_bits_number();
+	int64_t number = rand_32_bits_number();
 	while (check_primility(number) == false) {
-		long long newnumber = rand_32_bits_number();
+		int64_t newnumber = rand_32_bits_number();
 		while(number == newnumber) {
 			newnumber = rand_32_bits_number();
 		}

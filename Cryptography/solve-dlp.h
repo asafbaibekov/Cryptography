@@ -10,15 +10,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <math.h>
 #include <stdbool.h>
 #include "square-and-multiply.h"
 #include "inverse.h"
 
-long long *linearCongruence(long long a, long long b, long long n, long long *size);
+int64_t *linearCongruence(int64_t a, int64_t b, int64_t n, int64_t *size);
 
-long long *BSGS_solve(int g, int y, int p);
+int64_t *BSGS_solve(int g, int y, int p);
 
-long long *pollard_solve(int g, int y, int p);
+int64_t *pollard_solve(int g, int y, int p);
 
 #endif /* solve_dlp_h */

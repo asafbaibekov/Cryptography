@@ -45,22 +45,22 @@ void main_primary_test(void) {
 	printf("generating long prime...\n");
 	int attempts = 0;
 	srand((unsigned int) time(NULL));
-	long long prime = generate_long_prime(&attempts);
+	int64_t prime = generate_long_prime(&attempts);
 	printf("generated long prime: %lld\n", prime);
 	printf("number of attemtps are: %d\n", attempts);
 }
 
 void main_diffie_hellman(void) {
 	int alpha = 2;
-	long long public_key = DH_generate_keyPair(BIG_PRIME, alpha);
-	long long ephemeral_key;
-	long long cipher_text;
+	int64_t public_key = DH_generate_keyPair(BIG_PRIME, alpha);
+	int64_t ephemeral_key;
+	int64_t cipher_text;
 	DH_encrypt(BIG_PRIME, alpha, public_key, 12345, &ephemeral_key, &cipher_text);
 	
 	printf("ephemeral_key: %lld\n", ephemeral_key);
 	printf("cipher_text: %lld\n", cipher_text);
 	
-	long long message;
+	int64_t message;
 	DH_decrypt(BIG_PRIME, alpha, ephemeral_key, cipher_text, &message);
 	printf("message: %lld\n", message);
 }
@@ -90,7 +90,7 @@ void main_elliptic_curve(void) {
 }
 
 void main_solve_dlp(void) {
-	long long *bsgs_private_key = BSGS_solve(2, 37, 131);
+	int64_t *bsgs_private_key = BSGS_solve(2, 37, 131);
 	if (bsgs_private_key != NULL) {
 		printf("2^x === 37 mod 131\n");
 		printf("x = %lld\n", *bsgs_private_key);
@@ -99,7 +99,7 @@ void main_solve_dlp(void) {
 	
 	printf("\n");
 	
-	long long *pollard_private_key = pollard_solve(3, 21, 59);
+	int64_t *pollard_private_key = pollard_solve(3, 21, 59);
 	if (pollard_private_key != NULL) {
 		printf("3^x === 21 mod 59\n");
 		printf("x = %lld\n", *pollard_private_key);
