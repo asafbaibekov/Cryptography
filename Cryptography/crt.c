@@ -22,6 +22,11 @@ void print_demo_crt(void) {
 		printf("Check the equations and try again.\n");
 	} else
 		printModularEquation(finalModularEquation);
+	free(finalModularEquation);
+	free(modularEquations[0]);
+	free(modularEquations[1]);
+	free(modularEquations[2]);
+	free(modularEquations);
 }
 
 void print_for_crt(ModularEquation *modularEquations[], size_t size) {

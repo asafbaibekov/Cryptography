@@ -30,10 +30,14 @@ uint64_t *BSGS_solve(int g, int y, int p) {
 			if (giant_element == baby_array[j]) {
 				uint64_t *toRet = malloc(sizeof(uint64_t));
 				*toRet = m * i + j;
+				free(giant_array);
+				free(baby_array);
 				return toRet;
 			}
 		}
 	}
+	free(giant_array);
+	free(baby_array);
 	return NULL;
 }
 
@@ -110,5 +114,6 @@ int64_t *pollard_solve(int g, int y, int p) {
 			return toRet;
 		}
 	}
+	free(solutions);
 	return NULL;
 }
