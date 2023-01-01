@@ -27,9 +27,22 @@ void RSA_encrypt(uint64_t n, uint64_t Kpub, uint64_t message, uint64_t *cipher) 
 }
 
 void RSA_decrypt(int64_t Kpub, uint64_t cipher, int64_t *message) {
-	uint32_t n = rsa_private_key_p * rsa_private_key_q;
 	uint32_t phi_n = (rsa_private_key_p - 1) * (rsa_private_key_q - 1);
 	int64_t *d = inverse(Kpub, phi_n);
 	if (d == NULL) return;
-	*message = exponent(cipher, *d, n);
+	ModularEquation **modularEquations = malloc(sizeof(ModularEquation *) * 2);
+	modularEquations[0] = initModularEquation(
+		exponent(cipher, *d % (rsa_private_key_p - 1), rsa_private_key_p),
+		rsa_private_key_p
+	);
+	modularEquations[1] = initModularEquation(
+		exponent(cipher, *d % (rsa_private_key_q - 1), rsa_private_key_q),
+		rsa_private_key_q
+	);
+	ModularEquation *final = crt(modularEquations, 2);
+	*message = final->b;
+	free(modularEquations[0]);
+	free(modularEquations[1]);
+	free(modularEquations);
+	free(final);
 }

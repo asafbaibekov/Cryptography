@@ -13,6 +13,7 @@
 #include <time.h>
 #include "inverse.h"
 #include "square-and-multiply.h"
+#include "crt.h"
 #include "primary-test.h"
 
 void RSA_generate_keyPair(uint32_t *e, uint32_t *n);
