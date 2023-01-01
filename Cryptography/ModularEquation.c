@@ -7,7 +7,7 @@
 
 #include "ModularEquation.h"
 
-ModularEquation *initModularEquation(int b, int n) {
+ModularEquation *initModularEquation(uint64_t b, uint64_t n) {
 	ModularEquation *new = malloc(sizeof(ModularEquation));
 	new->b = b;
 	new->n = n;
@@ -15,5 +15,5 @@ ModularEquation *initModularEquation(int b, int n) {
 }
 
 void printModularEquation(ModularEquation *modularEquation) {
-	printf("x === %d (mod %d)\n", modularEquation->b, modularEquation->n);
+	printf("x === %lld (mod %lld)\n", modularEquation->b, modularEquation->n);
 }

@@ -30,12 +30,12 @@ void print_for_crt(ModularEquation *modularEquations[], size_t size) {
 }
 
 ModularEquation *crt(ModularEquation *modularEquations[], size_t size) {
-	int N = 1;
-	int bnx_sum = 0;
+	uint64_t N = 1;
+	uint64_t bnx_sum = 0;
 	for (int i = 0; i < size; i++)
 		N *= modularEquations[i]->n;
 	for (int i = 0; i < size; i++) {
-		int n_i = N / modularEquations[i]->n;
+		uint64_t n_i = N / modularEquations[i]->n;
 		int64_t *x_i = inverse(n_i, modularEquations[i]->n);
 		if (x_i == NULL) return NULL;
 		bnx_sum += modularEquations[i]->b * n_i * (*x_i);

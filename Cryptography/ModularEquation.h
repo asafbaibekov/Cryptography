@@ -13,11 +13,11 @@
 
 typedef struct ModularEquation {
 	// x === b (mod n)
-	int b;
-	int n;
+	uint64_t b;
+	uint64_t n;
 } ModularEquation;
 
-ModularEquation *initModularEquation(int b, int n);
+ModularEquation *initModularEquation(uint64_t b, uint64_t n);
 
 void printModularEquation(ModularEquation *modularEquation);
 
