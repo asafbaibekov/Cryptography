@@ -33,7 +33,6 @@ int64_t *inverse(int64_t a, int64_t n) {
 	int64_t gcd, x, y;
 	extended_gcd(a, n, &gcd, &x, &y);
 	if (gcd != 1) return NULL;
-	a %= n;
 	int64_t *toRet = malloc(sizeof(int64_t));
 	*toRet = (x < 0) ? x + n : x;
 	return toRet;
