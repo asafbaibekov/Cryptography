@@ -15,6 +15,7 @@
 #include "elliptic-curve.h"
 #include "solve-dlp.h"
 #include "rsa.h"
+#include "dsa.h"
 
 void main_gcd(void) {
 	int a, b;
@@ -121,6 +122,25 @@ void main_rsa(void) {
 	printf("message: %lld\n", message);
 }
 
+void main_dsa(void) {
+	srand((unsigned int) time(NULL));
+	// p must be a safe prime
+	// means that p and q must
+	// follow the rule of p = 2q + 1
+	// where p and q are both primes
+	int p = 59;
+	int q = 29;
+	
+	// alpha must be generator / primitive element
+	// on the cyclic group Z*q
+	int alpha = 3;
+	DSA_sign_and_verify(p, q, alpha, 17);
+	printf("\n");
+	DSA_sign_and_verify(p, q, alpha, 2);
+	printf("\n");
+	DSA_sign_and_verify(p, q, alpha, 21);
+}
+
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
 	main_gcd();
@@ -140,5 +160,7 @@ int main(int argc, const char * argv[]) {
 	main_solve_dlp();
 	printf("======================================\n");
 	main_rsa();
+	printf("======================================\n");
+	main_dsa();
 	return 0;
 }

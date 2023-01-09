@@ -18,6 +18,7 @@
 		2D8F0103294D0B1B00FF064D /* solve-dlp.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F0102294D0B1B00FF064D /* solve-dlp.c */; };
 		2DA31E732928D27C0063A096 /* primary-test.c in Sources */ = {isa = PBXBuildFile; fileRef = 2DA31E722928D27C0063A096 /* primary-test.c */; };
 		2DBBD7FB291EA44500D2D5D8 /* square-and-multiply.c in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBD7FA291EA44500D2D5D8 /* square-and-multiply.c */; };
+		2DEBA2922968DAD3002379A5 /* dsa.c in Sources */ = {isa = PBXBuildFile; fileRef = 2DEBA2912968DAD3002379A5 /* dsa.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		2DA31E722928D27C0063A096 /* primary-test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "primary-test.c"; sourceTree = "<group>"; };
 		2DBBD7F9291EA44500D2D5D8 /* square-and-multiply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "square-and-multiply.h"; sourceTree = "<group>"; };
 		2DBBD7FA291EA44500D2D5D8 /* square-and-multiply.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "square-and-multiply.c"; sourceTree = "<group>"; };
+		2DEBA2902968DAD3002379A5 /* dsa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		2DEBA2912968DAD3002379A5 /* dsa.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dsa.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				2D8F0102294D0B1B00FF064D /* solve-dlp.c */,
 				2D360D0F2960D88800E11CF0 /* rsa.h */,
 				2D360D102960D88800E11CF0 /* rsa.c */,
+				2DEBA2902968DAD3002379A5 /* dsa.h */,
+				2DEBA2912968DAD3002379A5 /* dsa.c */,
 			);
 			path = Cryptography;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				2DBBD7FB291EA44500D2D5D8 /* square-and-multiply.c in Sources */,
 				2D3BB24A290D3D1900AC5465 /* gcd.c in Sources */,
 				2D3BB242290D3CF200AC5465 /* main.c in Sources */,
+				2DEBA2922968DAD3002379A5 /* dsa.c in Sources */,
 				2D13CB052916997E0082948F /* inverse.c in Sources */,
 				2D11DDC229440E1D00437C87 /* elliptic-curve.c in Sources */,
 				2D13CB0B2916ABC50082948F /* crt.c in Sources */,
