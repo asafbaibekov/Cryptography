@@ -16,6 +16,7 @@
 #include "solve-dlp.h"
 #include "rsa.h"
 #include "dsa.h"
+#include "rc4.h"
 
 void main_gcd(void) {
 	int a, b;
@@ -141,6 +142,36 @@ void main_dsa(void) {
 	DSA_sign_and_verify(p, q, alpha, 21);
 }
 
+void main_rc4(void) {
+	char key[] = "this is my key";
+	uint8_t *keyStream = RC4_init(key);
+	printf("key stream: \n");
+	print_key_stream(keyStream);
+	
+	uint8_t *cipher = RC4_encrypt("hello world", keyStream);
+	if (cipher == NULL) {
+		free(keyStream);
+		return;
+	}
+	printf("\n");
+	printf("cipher: \n");
+	print_key_stream(cipher);
+	
+	char *plain = RC4_decrypt((char *) cipher, keyStream);
+	if (plain == NULL) {
+		free(keyStream);
+		free(cipher);
+		return;
+	}
+	printf("\n");
+	printf("plain: \n");
+	printf("%s\n", plain);
+	
+	free(keyStream);
+	free(cipher);
+	free(plain);
+}
+
 int main(int argc, const char * argv[]) {
 	printf("======================================\n");
 	main_gcd();
@@ -162,5 +193,7 @@ int main(int argc, const char * argv[]) {
 	main_rsa();
 	printf("======================================\n");
 	main_dsa();
+	printf("======================================\n");
+	main_rc4();
 	return 0;
 }
