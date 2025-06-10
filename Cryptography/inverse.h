@@ -17,8 +17,6 @@ void scan_for_inverse(int *a, int *n);
 
 void print_inverse(int a, int n);
 
-void print_inverse_error(int a, int n, int gcd);
-
 int64_t *inverse(int64_t a, int64_t n);
 
 #endif /* inverse_h */
